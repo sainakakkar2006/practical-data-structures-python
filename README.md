@@ -1,39 +1,43 @@
 # Practical Data Structures in Python
 
-A small portfolio repo showing core data structures through practical software-development examples. Each module includes readable code, tests, and a short explanation of when the data structure is useful.
+This repo is a collection of small data structure examples I made while practicing core CS topics.
 
-## Why This Project Exists
+I wanted the examples to feel more useful than just textbook code, so each one is connected to a normal software problem.
 
-Data structures are not only interview topics. They show up in real systems:
+## What's Inside
 
-- caches need fast lookup and eviction
-- dependency tools need graph traversal
-- search boxes need prefix lookup
-- schedulers need priority queues
-- network/grouping problems need disjoint sets
-
-This repo turns those ideas into small, testable Python implementations.
-
-## Projects
-
-| Module | Data Structure | Practical Use Case |
+| File | Data Structure | Example Use |
 | --- | --- | --- |
-| `lru_cache.py` | Hash map + doubly linked list | Keep most recently used values and evict old ones |
-| `dependency_resolver.py` | Directed graph + topological sort | Order tasks/packages based on dependencies |
-| `autocomplete.py` | Trie | Return suggestions by prefix |
-| `priority_task_queue.py` | Heap | Schedule highest-priority tasks first |
-| `union_find.py` | Disjoint set union | Track connected groups efficiently |
+| `lru_cache.py` | dictionary + doubly linked list | keeping recently used values |
+| `dependency_resolver.py` | graph | ordering tasks with prerequisites |
+| `autocomplete.py` | trie | finding words from a prefix |
+| `priority_task_queue.py` | heap | picking the most important task first |
+| `union_find.py` | disjoint set | checking which items are connected |
+
+## Why I Made This
+
+I wanted a GitHub project that shows I understand data structures, but in a way that is still practical.
+
+For example:
+
+- caches need fast lookup
+- autocomplete needs prefix search
+- task queues need priorities
+- dependency planners need graph traversal
+- connected groups can be handled with union-find
 
 ## Quick Start
+
+Run the tests:
 
 ```bash
 PYTHONPATH=src python -m unittest discover -s tests
 ```
 
-Run a small demo:
+Run the demo:
 
 ```bash
-python examples/demo.py
+PYTHONPATH=src python examples/demo.py
 ```
 
 ## Example
@@ -50,6 +54,13 @@ cache.put("user:3", "Mina")
 assert cache.get("user:2") is None
 ```
 
-## What This Shows
+Here, `user:2` gets removed because it was the least recently used item.
 
-This repo is designed to show that I understand data structures, can connect them to real software problems, and can write clean, tested Python code.
+## What I Practiced
+
+- writing clean Python classes
+- using tests to check behavior
+- thinking about time complexity
+- connecting data structures to real examples
+- making a repo that is easy to run
+
