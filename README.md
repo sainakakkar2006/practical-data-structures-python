@@ -1,4 +1,4 @@
-# Practical Data Structures in Python
+# practical-data-structures-python
 
 **Name:** Saina Kakkar
 
@@ -21,6 +21,31 @@ can be handled with union-find.
 | `priority_task_queue.py` | heap | picking the most important task first |
 | `union_find.py` | disjoint set | checking which items are connected |
 
+## What Each One Provides
+
+**`LRUCache(capacity)`** with `get(key)`, `put(key, value)`,
+`keys_most_recent_first()`, and `len()`. The dictionary gives O(1) lookup
+and the doubly linked list gives O(1) reordering, which is the whole point
+of the combination. Using either one alone makes some operation linear.
+
+**`resolve_dependencies(items, dependencies)`** takes a list of items and a
+dict of prerequisites and returns a valid order, so `{"deploy": ["build",
+"test"]}` guarantees `build` and `test` come before `deploy`. This is
+topological sorting applied to an everyday problem.
+
+**`AutocompleteIndex(words)`** with `add(word)` and
+`suggest(prefix, limit=5)`. The trie means suggesting completions for a
+prefix does not require scanning every word, only walking down the prefix
+and collecting below it.
+
+**`PriorityTaskQueue()`** with `add(name, priority)`, `pop_next()`, and
+`peek()`. A heap keeps the most important task reachable in O(log n) time
+without re-sorting the whole queue on every insert.
+
+**`UnionFind(items)`** with `union(a, b)`, `find(item)`,
+`connected(a, b)`, and `group_size(item)`. It answers "are these two things
+in the same group" almost instantly even after many merges.
+
 ## Run
 
 Run the demo:
@@ -35,8 +60,8 @@ PYTHONPATH=src python examples/demo.py
 PYTHONPATH=src python -m unittest discover -s tests
 ```
 
-If every test passes, each structure behaves the way its real-world use case
-needs it to.
+There is one test file per structure. If every test passes, each structure
+behaves the way its real-world use case needs it to.
 
 ## Example
 
@@ -63,6 +88,9 @@ I wanted a GitHub project that shows I understand data structures, but in a
 way that is still practical. Writing tests for each structure ended up being
 the most useful part. Thinking about time complexity is one thing, but
 proving the eviction order of an LRU cache with a test is what made the
-behavior stick for me. Could've stopped at the classes themselves, but I
-added the demo script and per-structure tests so the repo is easy for
-someone else to run and poke at.
+behavior stick for me. I added the demo script and per-structure tests so
+the repo is easy for someone else to run and poke at.
+
+## License
+
+MIT. See the [LICENSE](LICENSE) file.
